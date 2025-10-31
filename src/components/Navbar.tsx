@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
           <div className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500 text-white">
             U
           </div>
-          <span>UCC : Prácticas Desarrollo</span>
+          <span>Trabajo final</span>
         </div>
 
         {/* Lado derecho: botón de tema */}

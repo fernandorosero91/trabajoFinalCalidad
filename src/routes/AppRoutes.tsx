@@ -7,6 +7,7 @@ import ThreeDemoView from "../views/ThreeDemoView";
 import LayoutsView from "../views/LayoutsView";
 import SpeechDemoView from "../views/SpeechDemoView";
 import GeometryExplorer from "../views/GeometryExplorer";
+import GeometryExplorer3D from "../views/GeometryExplorer3D";
 import SettingsView from "../views/SettingsView";
 import TablasMul from "../views/TablasMul";
 import ConversorUnid from "../views/ConversorUnid";
@@ -23,6 +24,7 @@ export default function AppRoutes() {
         <Route path="layouts" element={<LayoutsView />} />
         <Route path="tts" element={<SpeechDemoView />} />
         <Route path="three_2" element={<GeometryExplorer />} />
+        <Route path="geometria-3d" element={<GeometryExplorer3D />} />
         <Route path="settings" element={<SettingsView />} />
         <Route path="tablasmul" element={<TablasMul />} />
         <Route path="conversorunid" element={<ConversorUnid />} />

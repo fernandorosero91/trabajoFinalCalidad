@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaHome, FaCube, FaColumns, FaMicrophone, FaShapes, FaCalculator, FaRuler, FaKey, FaMouse, FaList } from "react-icons/fa";
+import { FaHome, FaCube, FaColumns, FaMicrophone, FaShapes, FaCalculator, FaRuler, FaKey, FaMouse, FaList, FaCubes } from "react-icons/fa";
 
 interface SidebarItem {
   label: string;
@@ -8,25 +8,25 @@ interface SidebarItem {
   icon?: React.ReactNode;
 }
 
-const mainItems: SidebarItem[] = [
-  { label: "Inicio", route: "/", icon: <FaHome /> },
-  { label: "Three.js Demo", route: "/three", icon: <FaCube /> },
-  { label: "Responsive Layouts", route: "/layouts", icon: <FaColumns /> },
-  { label: "Text-to-Speech", route: "/tts", icon: <FaMicrophone /> },
-  { label: "Figuras Geometricas", route: "/three_2", icon: <FaShapes /> },
+const matematicasItems: SidebarItem[] = [
+  
+   { label: "Explorador 3D", route: "/geometria-3d", icon: <FaCubes /> },
+   
 ];
 
-const exerciseItems: SidebarItem[] = [
-  { label: "Tablas de Multiplicar", route: "/tablasmul", icon: <FaCalculator /> },
-  { label: "Conversor de Unidades", route: "/conversorunid", icon: <FaRuler /> },
-  { label: "Validadador de Contraseñas", route: "/validcontrasena", icon: <FaKey /> },
-  { label: "Contador de Clics con Almacenamiento", route: "/contadorclics", icon: <FaMouse /> },
-  { label: "Lista de Tareas", route: "/listareas", icon: <FaList /> },
+const socialesItems: SidebarItem[] = [
+  { label: "Ciencias Sociales", route: "/layouts", icon: <FaColumns /> },
+];
+
+const naturalesItems: SidebarItem[] = [
+  { label: "Ciencias Naturales", route: "/tts", icon: <FaMicrophone /> },
+
 ];
 
 export default function Sidebar() {
-  const [openMain, setOpenMain] = useState(false);
-  const [openExercises, setOpenExercises] = useState(false);
+  const [openMatematicas, setOpenMatematicas] = useState(false);
+  const [openSociales, setOpenSociales] = useState(false);
+  const [openNaturales, setOpenNaturales] = useState(false);
 
   const renderNavItem = ({ label, route, icon }: SidebarItem) => (
     <NavLink
@@ -46,27 +46,38 @@ export default function Sidebar() {
     <aside className="hidden md:block w-full md:w-[240px] border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
       <div className="p-3 space-y-1">
 
-        {/* Acordeón Main Items */}
+        {/* Acordeón Matemáticas */}
         <button
-          onClick={() => setOpenMain(!openMain)}
-          className="w-full text-left flex items-center justify-between rounded-lg px-3 py-2 text-slate-700 dark:text-slate-300 
+          onClick={() => setOpenMatematicas(!openMatematicas)}
+          className="w-full text-left flex items-center justify-between rounded-lg px-3 py-2 text-slate-700 dark:text-slate-300
                      hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
         >
-          Menú Principal
-          <span>{openMain ? "▲" : "▼"}</span>
+          Matemáticas
+          <span>{openMatematicas ? "▲" : "▼"}</span>
         </button>
-        {openMain && <div className="pl-4 space-y-1">{mainItems.map(renderNavItem)}</div>}
+        {openMatematicas && <div className="pl-4 space-y-1">{matematicasItems.map(renderNavItem)}</div>}
 
-        {/* Acordeón Exercises */}
+        {/* Acordeón Ciencias Sociales */}
         <button
-          onClick={() => setOpenExercises(!openExercises)}
-          className="w-full text-left flex items-center justify-between rounded-lg px-3 py-2 text-slate-700 dark:text-slate-300 
+          onClick={() => setOpenSociales(!openSociales)}
+          className="w-full text-left flex items-center justify-between rounded-lg px-3 py-2 text-slate-700 dark:text-slate-300
                      hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
         >
-          Ejercicios - Jtest
-          <span>{openExercises ? "▲" : "▼"}</span>
+          Ciencias Sociales
+          <span>{openSociales ? "▲" : "▼"}</span>
         </button>
-        {openExercises && <div className="pl-4 space-y-1">{exerciseItems.map(renderNavItem)}</div>}
+        {openSociales && <div className="pl-4 space-y-1">{socialesItems.map(renderNavItem)}</div>}
+
+        {/* Acordeón Ciencias Naturales */}
+        <button
+          onClick={() => setOpenNaturales(!openNaturales)}
+          className="w-full text-left flex items-center justify-between rounded-lg px-3 py-2 text-slate-700 dark:text-slate-300
+                     hover:bg-slate-50 dark:hover:bg-slate-800 font-medium"
+        >
+          Ciencias Naturales
+          <span>{openNaturales ? "▲" : "▼"}</span>
+        </button>
+        {openNaturales && <div className="pl-4 space-y-1">{naturalesItems.map(renderNavItem)}</div>}
 
       </div>
     </aside>
